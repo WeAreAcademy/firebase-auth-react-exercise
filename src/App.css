@@ -9,3 +9,14 @@ h1 {
   border-radius: 15px;
   width: 300px;
 }
+.reply {
+  font-size: 3rem;
+}
+button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 3rem;
+}
+img {
+  border-radius: 50px;
+}

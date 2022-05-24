@@ -73,9 +73,16 @@ function AmazingDemo() {
       });
   }
   async function handleFetchNormal() {
+    setLastReply("");
     const reply = await axios.get(apiBaseURL + "/");
     setLastReply(reply.data);
   }
+  async function handleFetchSecretWhenNotLoggedIn() {
+    setLastReply("");
+    const reply = await axios.get(apiBaseURL + "/secret");
+    setLastReply(reply.data);
+  }
+
   async function handleFetchSecret() {
     if (!currentUser) {
       console.log("Not logged in!")
@@ -106,9 +113,15 @@ function AmazingDemo() {
       }
       <hr />
       <button onClick={handleFetchNormal}>fetch normal info</button>
-      <button onClick={handleFetchSecret}>fetch me mah daggawn SECERETs, hihihi!!!</button>
+      {
+        currentUser ?
+          <button onClick={handleFetchSecret}>Fetch secrets, pls, I'm logged in</button> :
+          <><button onClick={handleFetchSecretWhenNotLoggedIn}>??fetch secrets??</button></>
+      }
       <hr />
-      <div><h3>Last Reply:</h3>{lastReply}</div>
+      <div><h3>Last Reply:</h3>
+        <div className="reply">{lastReply}</div>
+      </div>
     </div>
   );
 }
