@@ -15,6 +15,7 @@ export function AuthDemoStart(): JSX.Element {
     async function handleFetchSecretClicked() {
         const reply = await axios.get("http://localhost:4000/secret");
         console.log({ "secret: ": reply.data });
+        setLastReply(reply.data);
     }
 
     return (
