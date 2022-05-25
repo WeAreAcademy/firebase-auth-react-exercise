@@ -32,7 +32,7 @@ export function AuthDemoCheckpoint1() {
         const token = await user?.getIdToken();
         if (token) {
             const headers = { "Authorization": "Bearer " + token }
-            const reply = await axios.get("http://localhost:4000/secret", { headers });
+            const reply = await axios.get("http://localhost:4000/wisdom", { headers });
             console.log({ "secret: ": reply.data });
             setLastReply(reply.data);
         } else {

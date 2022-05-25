@@ -69,7 +69,7 @@ export function AuthDemoCheckpoint2() {
     }
     async function handleFetchSecretWhenNotLoggedIn() {
         setLastReply("");
-        const reply = await axios.get(apiBaseURL + "/secret");
+        const reply = await axios.get(apiBaseURL + "/wisdom");
         setLastReply(reply.data);
     }
 
@@ -82,7 +82,7 @@ export function AuthDemoCheckpoint2() {
         const token = await currentUser.getIdToken();
         if (token) {
             const reply = await axios.get(
-                apiBaseURL + "/secret",
+                apiBaseURL + "/wisdom",
                 {
                     headers:
                         { "Authorization": "Bearer " + (await currentUser?.getIdToken()) }

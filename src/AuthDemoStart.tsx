@@ -13,7 +13,7 @@ export function AuthDemoStart(): JSX.Element {
 
     //TODO: this isn't checkpoint 1 stuff - this is later.
     async function handleFetchSecretClicked() {
-        const reply = await axios.get("http://localhost:4000/secret");
+        const reply = await axios.get("http://localhost:4000/wisdom");
         console.log({ "secret: ": reply.data });
         setLastReply(reply.data);
     }
