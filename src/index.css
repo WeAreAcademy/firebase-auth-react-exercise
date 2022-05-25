@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App {
+  text-align: center;
+}
+h1 {
+  font-size: 6rem;
+}
+.greeting {
+  border: 8px solid skyblue;
+  border-radius: 15px;
+  width: 300px;
+}
+.reply {
+  font-size: 3rem;
+}
+.AmazingAuthDemo button, .SecondDemo button {
+  margin: 10px;
+  padding: 10px;
+  font-size: 3rem;
+}
+img {
+  border-radius: 50px;
+}

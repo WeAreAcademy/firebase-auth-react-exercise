@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { auth, googleAuthProvider } from "./configureFirebase";
 import axios from "axios";
 
-export function AmazingAuthDemo() {
+export function AuthDemoCheckpoint2() {
     const apiBaseURL = "http://localhost:4000"
     const [currentUser, setCurrentUser] = useState<User | null>(null);
     const [lastReply, setLastReply] = useState<string>("");
@@ -95,7 +95,7 @@ export function AmazingAuthDemo() {
 
     }
     return (
-        <div className="App">
+        <div className="AmazingAuthDemo">
             {
                 currentUser ?
                     <Greeting user={currentUser} /> :
