@@ -2,35 +2,33 @@ import axios from "axios";
 import React, { useState } from "react";
 
 export function AuthDemoStart(): JSX.Element {
-    const [lastReply, setLastReply] = useState<string>("");
+    const [lastAPIReply, setLastAPIReply] = useState<string>("");
 
 
     async function handleFetchTimeClicked() {
         const reply = await axios.get("http://localhost:4000/");
-        console.log({ "time: ": reply.data });
-        setLastReply(reply.data);
+        setLastAPIReply(reply.data);
     }
 
-    //TODO: this isn't checkpoint 1 stuff - this is later.
-    async function handleFetchSecretClicked() {
+    async function handleFetchWisdomClicked() {
+        //This SHOULD be hard to get, eventually.
         const reply = await axios.get("http://localhost:4000/wisdom");
-        console.log({ "secret: ": reply.data });
-        setLastReply(reply.data);
+        setLastAPIReply(reply.data);
     }
 
     return (
-        <div className="AuthDemo">
+        <div>
             <h2>Auth Demo</h2>
 
-            <button>Sign in (with google)</button>
-            <button>Sign out</button>
+            <button onClick={() => alert("not implemented")}>Sign in</button>
+            <button onClick={() => alert("not implemented")}>Sign out</button>
 
             <hr />
             <h3>Talk to the API</h3>
             <button onClick={handleFetchTimeClicked}>Fetch Time</button>
-            <button onClick={handleFetchSecretClicked}>Fetch Secret</button>
+            <button onClick={handleFetchWisdomClicked}>Fetch Ancient Wisdom!</button>
             <h4>Last successful reply from API</h4>
-            <div>{lastReply}</div>
+            <div>{lastAPIReply}</div>
             <br />
             <i>(also check console for any failures)</i>
 

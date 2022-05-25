@@ -1,5 +1,5 @@
 {
-  "name": "auth-with-firebase-auth-react-ts",
+  "name": "firebase-auth-react-exercise",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,7 +11,6 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "axios": "^0.27.2",
-    "firebase": "^9.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
