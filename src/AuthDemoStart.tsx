@@ -24,13 +24,17 @@ export function AuthDemoStart(): JSX.Element {
         console.log(signedInUser);
         setUser(signedInUser);
     }
+    function handleSignOutClicked() {
+        auth.signOut();
+        setUser(null);
+    }
 
     return (
         <div>
             <h2>Auth Demo</h2>
 
             <button onClick={handleSignInClicked}>Sign in</button>
-            <button onClick={() => alert("not implemented")}>Sign out</button>
+            <button onClick={handleSignOutClicked}>Sign out</button>
             <div>Hi You are signed in as: {user?.displayName}
                 {user?.email}
                 {user && user.photoURL && <img alt={"mug shot"} src={user.photoURL} />}
