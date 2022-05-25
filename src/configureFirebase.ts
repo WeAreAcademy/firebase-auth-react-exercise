@@ -8,7 +8,14 @@ import { getAuth, GoogleAuthProvider } from "firebase/auth";
 // Usually, you need to fastidiously guard API keys (for example, by 
 // setting the keys as environment variables); 
 // however, API keys for Firebase services are ok to include in code or checked-in config files.
-const firebaseConfig = { todo: "Replace this object with your config!" };
+const firebaseConfig = {
+    apiKey: "AIzaSyBBy_89aWeWJsyknhfkqC3l-x3ye_H2n5Q",
+    authDomain: "academy-auth-demo.firebaseapp.com",
+    projectId: "academy-auth-demo",
+    storageBucket: "academy-auth-demo.appspot.com",
+    messagingSenderId: "118856093981",
+    appId: "1:118856093981:web:17222f12fcd856345b11f4"
+};
 
 // Initialize Firebase as a whole
 export const app = initializeApp(firebaseConfig);
