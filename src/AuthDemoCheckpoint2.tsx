@@ -95,7 +95,7 @@ export function AuthDemoCheckpoint2() {
 
     }
     return (
-        <div className="AmazingAuthDemo">
+        <div className="AuthDemo">
             {
                 currentUser ?
                     <Greeting user={currentUser} /> :

@@ -46,7 +46,7 @@ export function AuthDemoCheckpoint1() {
     }
 
     return (
-        <div className="SecondAuthDemo">
+        <div className="AuthDemo">
             <h2>Auth Demo</h2>
 
             <button onClick={handleLogInClick}>log in</button>

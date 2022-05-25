@@ -3,7 +3,11 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 
-// Your web app's Firebase configuration
+// Your web app's Firebase configuration.  
+//
+// Usually, you need to fastidiously guard API keys (for example, by 
+// setting the keys as environment variables); 
+// however, API keys for Firebase services are ok to include in code or checked-in config files.
 const firebaseConfig = {
     apiKey: "AIzaSyDQvuLbZwFZRkLUZxlSrTuAI-f_AyGOHow",
     authDomain: "cohort4-auth-demo.firebaseapp.com",

@@ -19,7 +19,7 @@ export function AuthDemoStart(): JSX.Element {
     }
 
     return (
-        <div className="SecondAuthDemo">
+        <div className="AuthDemo">
             <h2>Auth Demo</h2>
 
             <button>Sign in (with google)</button>
