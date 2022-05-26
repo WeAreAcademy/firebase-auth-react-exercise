@@ -13,6 +13,11 @@ export function AuthDemoStart(): JSX.Element {
         setLastAPIReply(reply.data);
     }
 
+    async function handleFetchWisdomRegardlessClicked() {
+        const reply = await axios.get("http://localhost:4000/wisdom");
+        setLastAPIReply(reply.data);
+    }
+
     async function handleFetchWisdomClicked() {
         if (!user) {
             console.log("not logged in - will not try to GET wisdom")
@@ -49,6 +54,7 @@ export function AuthDemoStart(): JSX.Element {
             <h3>Talk to the API</h3>
             <button onClick={handleFetchTimeClicked}>Fetch Time</button>
             <button onClick={handleFetchWisdomClicked}>Fetch Ancient Wisdom!</button>
+            <button onClick={handleFetchWisdomRegardlessClicked}>Fetch Ancient Wisdom Regardless!</button>
             <h4>Last successful reply from API</h4>
             <div>{lastAPIReply}</div>
             <br />
