@@ -14,8 +14,14 @@ export function AuthDemoStart(): JSX.Element {
     }
 
     async function handleFetchWisdomClicked() {
-        //This SHOULD be hard to get, eventually.
-        const reply = await axios.get("http://localhost:4000/wisdom");
+        if (!user) {
+            console.log("not logged in - will not try to GET wisdom")
+            return;
+        }
+        const idToken: string = await user.getIdToken();
+        const config = { headers: { "Authorization": "Bearer " + idToken } };
+
+        const reply = await axios.get("http://localhost:4000/wisdom", config);
         setLastAPIReply(reply.data);
     }
     async function handleSignInClicked() {
