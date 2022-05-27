@@ -7,14 +7,18 @@ export function AuthDemoStart(): JSX.Element {
     const [lastAPIReply, setLastAPIReply] = useState<string>("");
     const [user, setUser] = useState<User | null>(null);
 
+    const apiBaseURL = process.env.NODE_ENV === "production"
+        ? "https://neill-auth-demo.herokuapp.com"
+        : "http://localhost:4000"
+
 
     async function handleFetchTimeClicked() {
-        const reply = await axios.get("http://localhost:4000/");
+        const reply = await axios.get(apiBaseURL + "/");
         setLastAPIReply(reply.data);
     }
 
     async function handleFetchWisdomRegardlessClicked() {
-        const reply = await axios.get("http://localhost:4000/wisdom");
+        const reply = await axios.get(apiBaseURL + "/wisdom");
         setLastAPIReply(reply.data);
     }
 
@@ -26,7 +30,7 @@ export function AuthDemoStart(): JSX.Element {
         const idToken: string = await user.getIdToken();
         const config = { headers: { "Authorization": "Bearer " + idToken } };
 
-        const reply = await axios.get("http://localhost:4000/wisdom", config);
+        const reply = await axios.get(apiBaseURL + "/wisdom", config);
         setLastAPIReply(reply.data);
     }
     async function handleSignInClicked() {
