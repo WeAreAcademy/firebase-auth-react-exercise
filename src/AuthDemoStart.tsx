@@ -23,6 +23,16 @@ export function AuthDemoStart(): JSX.Element {
         const reply = await axios.get("http://localhost:4000/wisdom", config);
         setLastAPIReply(reply.data);
     }
+    async function handlePromoteMeClicked() {
+        if (!user) {
+            console.log("not logged in ")
+            return;
+        }
+        const token = await user.getIdToken()
+        const config = { headers: { "Authorization": "Bearer " + token } };
+        const reply = await axios.get("http://localhost:4000/promoteMe", config);
+        setLastAPIReply(reply.data);
+    }
 
     async function handleSignInClicked() {
         const userCredential = await signInWithPopup(auth, googleAuthProvider);
@@ -46,6 +56,7 @@ export function AuthDemoStart(): JSX.Element {
             <h3>Talk to the API</h3>
             <button onClick={handleFetchTimeClicked}>Fetch Time</button>
             <button onClick={handleFetchWisdomClicked}>Fetch Ancient Wisdom!</button>
+            <button onClick={handlePromoteMeClicked}>Promote Me!</button>
             <h4>Last successful reply from API</h4>
             <div>{lastAPIReply}</div>
             <br />
